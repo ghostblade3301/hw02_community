@@ -5,10 +5,12 @@ from .models import Group, Post
 
 
 def index(request):
+    title = 'Главная страница'
     template = 'posts/index.html'
     posts = (Post.objects.all()[:settings.POSTS_PER_PAGE])
     context = {
-        'posts': posts
+        'posts': posts,
+        'title': title,
     }
     return render(request, template, context)
 
