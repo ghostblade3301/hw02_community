@@ -17,5 +17,14 @@ class PostAdmin(admin.ModelAdmin):
 # класс PostAdmin
 
 
+class GroupAdmin(admin.ModelAdmin):
+    # Перечисляем поля, которые должны отображаться в админке
+    list_display = ('pk', 'title', 'description')
+    # Добавляем интерфейс для поиска по тексту постов
+    search_fields = ('title', 'description')
+    # Добавляем возможность фильтрации по дате
+    list_editable = ('title', 'description')
+
+
 admin.site.register(Post, PostAdmin)
-admin.site.register(Group)
+admin.site.register(Group, GroupAdmin)
