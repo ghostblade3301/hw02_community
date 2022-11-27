@@ -21,4 +21,5 @@ urlpatterns = [
     # Сначала проверяем все пути, которые есть в приложении
     path('', include('posts.urls', namespace='posts')),
     path('admin/', admin.site.urls),
+    path('auth/', include('django.contrib.auth.urls')), 
 ]
