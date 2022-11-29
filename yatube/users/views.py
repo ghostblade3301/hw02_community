@@ -1,4 +1,4 @@
-from django.shortcuts import render
+# from django.shortcuts import render
 
 # users/views.py
 # Импортируем CreateView, чтобы создать ему наследника
@@ -16,4 +16,4 @@ class SignUp(CreateView):
     form_class = CreationForm
     # После успешной регистрации перенаправляем пользователя на главную.
     success_url = reverse_lazy('posts:index')
-    template_name = 'users/signup.html' 
+    template_name = 'users/signup.html'
