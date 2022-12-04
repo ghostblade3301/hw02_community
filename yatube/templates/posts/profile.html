@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% block title %} {{ author.get_full_name }}{% endblock title %}
+{% block content %}
+
+
+
+  <main>
+    <div class="container py-5">        
+      <h1>Все посты пользователя: {{ author.get_full_name }} </h1>
+      <h3>Всего постов: {{ posts_count }}</h3>   
+      <article>
+        {% for post in page_obj %}
+          <ul>
+              <li>
+              Автор: {{ author.get_full_name }}
+              </li>
+              <li>
+              Дата публикации: {{ post.pub_date|date:"d E Y" }}
+              </li>
+          </ul>
+          <p>
+              {{ post.text }}
+          </p>
+          <p>
+              <a href="/{{ author.username }}/{{ post.id }}/" role="button">
+              Добавить комментарий
+              </a>
+          </p>
+          <p>
+          <a href="/posts/{{ post.id }}/edit" role="button">
+              Редактировать
+          </a>
+          </p>
+          <hr>
+        {% endfor %}
+      {% include "includes/paginator.html" %}
+    </div>
+  </main>
+
+
+
+{% endblock content %}
